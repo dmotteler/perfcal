@@ -1,0 +1,16 @@
+{
+  "configurations": [
+    {
+      "name": "Python: Current File (Integrated Terminal)",
+      "type": "python",
+      "request": "launch",
+      "program": "${file}",
+      "console": "integratedTerminal",
+	  "args": [
+            "-m", "3",
+            "-l",
+            "-a", "-b",
+        ]
+    },
+  ]
+}
