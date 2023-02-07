@@ -1,5 +1,6 @@
 {
   "configurations": [
+    
     {
       "name": "Python: Current File (Integrated Terminal)",
       "type": "python",
@@ -7,8 +8,7 @@
       "program": "${file}",
       "console": "integratedTerminal",
 	  "args": [
-            "-m", "3",
-            "-l",
+            "-o", "allevents.pdf",
             "-a", "-b",
         ]
     },
