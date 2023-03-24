@@ -14,7 +14,6 @@ import pytz
 from calendar import month_name
 from zipfile import ZipFile
 from openpyxl import load_workbook
-import msoffcrypto
 import io
 from copy import copy
 
@@ -91,22 +90,7 @@ class tuner_events():
         import warnings
         warnings.filterwarnings("ignore", "Data Validation")
 
-        # the SingoutInfo workbook may be password protected to shelter from
-        # prying eyes. if SIPW is in the environment, decrypt the file
-        # before opening.
-
-        sipw = os.environ.get('SIPW', None)
-        if sipw:
-            # from stackoverflow.com/questions/19450837/how-to-open-a-password-protected-excel-file-using-python
-            decrypted_workbook = io.BytesIO()
-            with open(self.infile, 'rb') as file:
-                office_file = msoffcrypto.OfficeFile(file)
-                office_file.load_key(password=sipw)
-                office_file.decrypt(decrypted_workbook)
-
-            self.wb = load_workbook(decrypted_workbook, read_only=True)
-        else:
-            self.wb = load_workbook(self.infile, read_only=True)
+        self.wb = load_workbook(self.infile, read_only=True)
 
         sh = self.wb["venues"]
         numcols = 3
