@@ -350,7 +350,9 @@ class tuner_events():
                             typ = desc[len("EVENT_TYPE:"):]
 
                 venue = ""
-                loc = sub['LOCATION']
+                loc = ""
+                if 'LOCATION' in sub:
+                    loc = sub['LOCATION']
                 if loc != "":
                     locflds = loc.split("\n")
                     venue = locflds.pop(0).strip()
