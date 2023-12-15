@@ -106,9 +106,9 @@ class event_changes():
                     event.add('location', locn)
 
             desc = []
-            if 'uni' in ev:
+            if 'uni' in ev and ev['uni']:
                 desc.append("UNIFORM:" + ev['uni'])
-            if 'type' in ev:
+            if 'type' in ev and ev['type']:
                 desc.append("EVENT_TYPE:" + ev['type'])
 
             if len(desc) > 0:
